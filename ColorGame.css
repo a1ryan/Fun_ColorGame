@@ -1,9 +1,12 @@
 body{
-    background-color: black;
+    background-color: rgb(26, 25, 25);
 }
 h1{
-    color: pink;
-    
+    color: red;
+
+}
+#message{
+    color: white;
 }
 #container{
     max-width: 600px;
