@@ -1,0 +1,19 @@
+body{
+    background-color: black;
+}
+h1{
+    color: pink;
+    
+}
+#container{
+    max-width: 600px;
+    margin: auto;
+}
+
+.square{
+    width: 30%;
+    background: white;
+    padding-bottom: 30%;
+    float: left;
+    margin: 1.16%;
+}
