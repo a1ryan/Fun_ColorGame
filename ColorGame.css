@@ -1,13 +1,19 @@
 body{
-    background-color: rgb(26, 25, 25);
+    background-color: #232323;
 }
 h1{
     color: red;
 
 }
-#message{
-    color: white;
+#stripe{
+    background-color: aliceblue;
+    height: 35px;
+    text-align: center;
+    color: black;
 }
+/* #message{
+    color: white;
+} */
 #container{
     max-width: 600px;
     margin: auto;
@@ -19,4 +25,8 @@ h1{
     padding-bottom: 30%;
     float: left;
     margin: 1.16%;
+}
+
+.selected{
+    background-color: rgb(30, 140, 177);
 }

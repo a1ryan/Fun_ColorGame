@@ -1,10 +1,64 @@
-var colors = randomSquares(6);
+var numSquare = 6 ;
+var colors = randomSquares(numSquare);
 var squares = document.querySelectorAll(".square");
 var picked = pickColor();
 var colorDisplay = document.querySelector("#display");
 var msg = document.querySelector("#message");
 var h1 = document.querySelector("h1");
+var reset = document.querySelector(".resetButton");
+var easybtn = document.querySelector("#easyBtn");
+var hardbtn = document.querySelector("#hardBtn");
+// var easy = alse;
 
+
+easybtn.addEventListener("click",function(){
+    easybtn.classList.add("selected");
+    hardbtn.classList.remove("selected");
+    numSquare = 3;
+    colors = randomSquares(numSquare);
+    picked = pickColor();
+    colorDisplay.textContent = picked;
+    for(var i=0;i<squares .length;i++){
+        if(colors[i]){
+             squares[i].style.background = colors[i];
+        }else{
+            squares[i].style.display = "none";
+        }
+    }
+    h1.style.background = "#232323";
+
+})
+
+hardbtn.addEventListener("click",function(){
+    hardbtn.classList.add("selected");
+    easybtn.classList.remove("selected");
+    numSquare = 6;
+    colors = randomSquares(numSquare);
+    picked = pickColor();
+    easy = false;
+    colorDisplay.textContent = picked;
+    for(var i=0;i<squares .length;i++){
+        squares[i].style.display = "block";
+        squares[i].style.background = colors[i];
+    }
+    h1.style.background = "#232323";
+
+})
+
+
+reset.addEventListener("click",function(){
+    //generate new colors
+    colors = randomSquares(numSquare);
+    //pick random color
+    picked = pickColor();
+    //change display color
+    colorDisplay.textContent = picked;
+    //change squares color
+    for(var i=0;i<squares.length;i++){
+        squares[i].style.backgroundColor = colors[i];
+    }
+    h1.style.background = "#232323";
+})
 colorDisplay.textContent = picked;
 
 for(var i=0;i<squares.length;i++){
@@ -15,10 +69,11 @@ for(var i=0;i<squares.length;i++){
         // console.log(clickedColor , picked);
         if(clickedColor === picked){
             msg.textContent = "Correct!!";
+            reset.textContent = "Play Again";
             changeColor(clickedColor);
             h1.style.background = clickedColor;
         }else{
-            this.style.background = "rgb(26, 25, 25)";
+            this.style.background = "#232323";
             msg.textContent = "Try Again!!";
         }
     })
@@ -38,7 +93,7 @@ function pickColor(){
 
 function randomSquares(num){
     var arr= [];
-    for(var i=0;i<=6;i++){
+    for(var i=0;i<num;i++){
         arr.push(randomColor());
     }
     return arr;
